@@ -4,6 +4,9 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib import style
 import matplotlib.dates as mdates
+from io import BytesIO
+import base64
+import gc
 import config
 
 def incoming_data(stock):
@@ -89,8 +92,19 @@ def chartstring_stocks(stock):
     ax1.set_ylabel('Value (per share)')
     ax2.set_ylabel('Value (per share)')
 
+    figfile = BytesIO()
+    plt.savefig(figfile, format='png', dpi=(100))
+
+    figfile.seek(0)
+
+    figdata_png = base64.b64encode(figfile.getvalue()).decode('ascii')
+
+    result = str(figdata_png)  # [2:-1]
+
     plt.show()
 
     plt.close()
 
-chartstring_stocks('aapl')
+    return result
+
+ascii_chart = chartstring_stocks('aapl')
