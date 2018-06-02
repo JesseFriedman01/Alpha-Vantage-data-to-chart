@@ -8,7 +8,7 @@ Note: To use this script, you need to:
 
 1. Obtain a free API key from Alpha Vantage (https://www.alphavantage.co/support/#api-key).
 
-1. Create and save "config.py" in the same directory as "AlphaToChart.py" with the following line:
+1. Create and save "config.py" in the same directory as "AlphaToChart.py" and add the following line:
 `	 api_key ="your API key"`
 
 
