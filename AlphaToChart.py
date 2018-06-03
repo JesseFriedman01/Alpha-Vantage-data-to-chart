@@ -107,4 +107,5 @@ def chartstring_stocks(stock):
 
     return result
 
+#ascii_chart contains a string of the chart produced by matplotlib in ASCII
 ascii_chart = chartstring_stocks('aapl')
